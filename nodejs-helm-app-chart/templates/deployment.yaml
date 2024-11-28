@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-helm-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-helm-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-helm-app
+    spec:
+      containers:
+        - name: nodejs-helm-app
+          image: timmo311/nodejs-helm-app:latest
+          ports:
+            - containerPort: 3000
